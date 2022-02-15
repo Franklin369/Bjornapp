@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bjornapp.Vistas.Configuraciones.PagoPremium"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <RelativeLayout>
+            <Image Aspect="AspectFill"
+                Source="https://cdn.dribbble.com/users/925716/screenshots/3333720/attachments/722375/night.png"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}"/>
+            <Grid x:Name="gridSinpago"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <ImageButton Grid.Row="1" Source="volvero.png" 
+                             BackgroundColor="Transparent"
+                       x:Name="btnVolver"
+                       Clicked="btnVolver_Clicked"
+                             Margin="8"
+                             HorizontalOptions="Start"/>
+                <Grid Grid.Row="2">
+                    <ScrollView>
+                        <StackLayout Orientation="Vertical"
+                                     Margin="10" VerticalOptions="Center"
+                                     HorizontalOptions="Center">
+                            <Label Text="Haga el pago respectivo y agrege la foto del pago, su negocio aparecera en destacados en menos de 6 horas"
+                                   FontAttributes="Bold"
+                                   FontSize="20"
+                                   TextColor="WhiteSmoke"
+                                   x:Name="lblEstado"
+                                   />
+                            <Frame x:Name="frameCuenta"
+                                   CornerRadius="5"
+                                   BackgroundColor="#2E4878">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="89"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0"
+                                        Orientation="Vertical"
+                                                 VerticalOptions="Center" >
+                                        <Label Text="BBVA: 0011-0203-0200216249"
+                               VerticalTextAlignment="Center"
+                               FontAttributes="Bold"
+                                   TextColor="WhiteSmoke"/>
+                                        <Label Text="YAPE: 958125433"
+                               VerticalTextAlignment="Center"
+                               FontAttributes="Bold"
+                                   TextColor="WhiteSmoke"/>
+                                        <Label Text="INTERBANK: 406-3105920700" 
+                               VerticalTextAlignment="Center"
+                               FontAttributes="Bold"
+                                   TextColor="WhiteSmoke"/>
+                                        <Label Text="BCP: 380-38748540-0-00" 
+                               VerticalTextAlignment="Center"
+                               FontAttributes="Bold"
+                                   TextColor="WhiteSmoke"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" 
+                                                 Grid.Column="1">
+                                        <Image Source="https://www.bbva.com.co/content/dam/public-web/colombia/new-beginning/tarjetas-credito/visa-clasica.png.img.960.1559857091691.png"/>
+                                        <Image Source="https://interbank.pe/image/layout_icon?img_id=465205"/>
+                                        <Image Source="https://i.ibb.co/KVLVj9y/BCP-Tarjeta-de-Cre-dito-Cla-sica-regular-Masiva-tira-XL-optimizado.png"/>
+
+                                    </StackLayout>
+                                </Grid>
+                                
+                            </Frame>
+                            <ScrollView Orientation="Horizontal">
+                                <Grid x:Name="stackPlanes" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame Grid.Column="0"
+                                        CornerRadius="10" BackgroundColor="White">
+                                        <StackLayout Orientation="Vertical" >
+                                            <Label Text="MENSUAL" TextColor="#7B52BB"
+                                               HorizontalTextAlignment="Center"
+                                               FontAttributes="Bold"/>
+                                            <Image Source="https://i.ibb.co/4Zm9RQc/velero-1.png"/>
+                                            <Label Text="1 mes como destacado"
+                                               HorizontalTextAlignment="Center"/>
+                                            <Label Text="S/. 10 /1 mes"
+                                               TextColor="#533784" 
+                                                   HorizontalTextAlignment="Center"
+                                                   FontAttributes="Bold"/>
+
+                                        </StackLayout>
+
+                                    </Frame>
+                                    <Frame Grid.Column="1"
+                                        CornerRadius="10" BackgroundColor="White">
+                                        <StackLayout Orientation="Vertical" >
+                                            <Label Text="ANUAL" TextColor="#7B52BB"
+                                               HorizontalTextAlignment="Center"
+                                               FontAttributes="Bold"/>
+                                            <Image Source="https://i.ibb.co/BZdvQs6/barco-vikingo.png"/>
+                                            <Label Text="1 año como destacado "
+                                               HorizontalTextAlignment="Center"/>
+                                            <Label Text="S/. 96 /1 año"
+                                               TextColor="#533784" 
+                                                   FontAttributes="Bold" 
+                                                   HorizontalTextAlignment="Center"/>
+
+                                        </StackLayout>
+
+                                    </Frame>
+
+                                </Grid>
+
+                            </ScrollView>
+                            <StackLayout Orientation="Horizontal" 
+                                         VerticalOptions="Center">
+                                <Button Text="+Agregar foto"
+                                        BackgroundColor="White"
+                                        x:Name="btnAgregarFotos"
+                                        TextColor="Black"
+                                        CornerRadius="5"
+                                        FontSize="11"
+                                        FontAttributes="Bold"
+                                        Clicked="btnAgregarFotos_Clicked"/>
+                                   <Button TextTransform="None" 
+                                    Text="Enviar Whatsapp" 
+                                    x:Name="btnWts"
+                                    Clicked="btnWts_Clicked"
+                                    BackgroundColor="#444EAE"                   
+                                    HorizontalOptions="Start" FontAttributes="Bold"      
+                                    TextColor="White" CornerRadius="5"/>
+                                    <Button TextTransform="None" Text="Llamar" 
+                                        BackgroundColor="#444EAE" 
+                                        HorizontalOptions="Start" FontAttributes="Bold"
+                                        BorderColor="Transparent" BorderWidth="1"
+                                        TextColor="White" CornerRadius="5"
+                                        x:Name="btnllamar"
+                                        Clicked="btnllamar_Clicked"/>
+                                
+
+                            </StackLayout>
+                            <Image Source="https://i.ibb.co/5GWDtB1/imagen-1.png"
+                                   x:Name="foto"/>
+                            <Button TextTransform="None" Text="Enviar" 
+                            BackgroundColor="White" 
+                            HorizontalOptions="Center" FontAttributes="Bold"
+                            TextColor="Black" CornerRadius="15"
+                            FontSize="16"
+                            Clicked="btnenviar_Clicked"
+                            x:Name="btnenviar"/>
+                            <Label/>
+
+
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </Grid>
+        </RelativeLayout>
+    </ScrollView>
+</ContentPage>

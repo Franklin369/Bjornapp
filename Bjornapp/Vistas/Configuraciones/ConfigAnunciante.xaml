@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Bjornapp.Vistas.Configuraciones.ConfigAnunciante">
+    <ScrollView>
+         <Grid BackgroundColor="#1E1E1E">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid VerticalOptions="Center" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0"  Text="Anunciate, es !Gratis!"        
+               TextColor="White"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" 
+               FontSize="25"
+               FontAttributes="Bold"
+               />
+            <Grid Grid.Row="1" HeightRequest="50"
+                  HorizontalOptions="Center" >
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="https://i.ibb.co/9NBxhW5/dispon.png"
+                       Grid.Column="0"/>
+                <Label Text="rápido y fácil"
+                               TextColor="White" Grid.Column="1"
+                               VerticalTextAlignment="Center" />
+
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="8,0,8,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Categoria:" Grid.Row="0" Grid.Column="0"
+                               VerticalTextAlignment="Center"
+                               FontAttributes="Bold"
+                                   TextColor="WhiteSmoke"
+                           HorizontalTextAlignment="End"/>
+                    <Picker x:Name="PickerCateg" Grid.Row="0" Grid.Column="1"
+                                    TextColor="White"/>
+                    <StackLayout Orientation="Horizontal"  Grid.Row="1" Grid.Column="0">
+                        <Image Source="https://i.ibb.co/DtCFMqj/llama.png"
+                       HeightRequest="25" Margin="2"/>
+                        <Label Text="Celular:" 
+                               VerticalTextAlignment="Center" FontAttributes="Bold"
+                                  TextColor="WhiteSmoke"
+                                    HorizontalTextAlignment="End"/>
+                    </StackLayout>
+                    <Entry x:Name="txtcelular" 
+                           Placeholder="Celular..."
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           TextColor="White"
+                           PlaceholderColor="WhiteSmoke"
+                            Keyboard="Telephone"
+                           TextChanged="txtcelular_TextChanged"/>
+                        <Label Grid.Row="2" Grid.Column="0"
+                            Text="Descripcion:" 
+                               TextColor="#FC595A"
+                               FontAttributes="Bold"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="End"/>
+                        <Entry x:Name="txtdescripcion"
+                               PlaceholderColor="White"
+                               Placeholder="Cuenta lo que haces"
+                               Grid.Row="2" Grid.Column="1"
+                               TextChanged="txtdescripcion_TextChanged"
+                               TextColor="White"/>
+                        <Button Text="Localizar" Grid.Row="3"
+                            Grid.Column="0"
+                            FontSize="16"
+                            BackgroundColor="#FC595A"
+                            TextColor="White"
+                            CornerRadius="5"
+                            FontAttributes="Bold"
+                            TextTransform="None"
+                            x:Name="btnlocalizar"
+                            Clicked="btnlocalizar_Clicked"/>
+                </Grid>
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="+Agregar fotos"
+                                TextTransform="None"
+                                x:Name="btnAgregarFotos"
+                                BackgroundColor="Transparent"
+                                TextColor="White"
+                                BorderWidth="1"
+                                BorderColor="#3F3F3F"
+                                CornerRadius="5"
+                                Clicked="btnAgregarFotos_Clicked"/>
+                        <Button Text="Cerrar sesión"
+                                TextTransform="None"
+                                BackgroundColor="#FFC853"
+                                TextColor="Black"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                CornerRadius="15"
+                                x:Name="btnCerrar"
+                                Clicked="btncerrar_Clicked"/>
+                    </StackLayout>
+
+            </StackLayout>
+                <StackLayout Grid.Row="1" Margin="5,12,5,0">
+                    <CarouselView x:Name="CarroselGaleria" 
+                                IndicatorView="Indicatorview" >
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="Transparent"
+                                       Padding="0"
+                                      >
+                                    <StackLayout >
+                                        <ImageButton Source="https://i.ibb.co/bPvfhQY/borrarverde.png"
+                                                     x:Name="btneliminarFoto"
+                                                     HorizontalOptions="CenterAndExpand"
+                                                     HeightRequest="30"
+                                                     BackgroundColor="Transparent"
+                                                     Clicked="btneliminarFoto_Clicked"
+                                                     CommandParameter="{Binding idgaleria}"/>
+                                        <Image VerticalOptions="CenterAndExpand"
+                                               x:Name="ImagenGaleriaf"
+                                               Source="{Binding foto}"/>
+
+                                    </StackLayout>
+                                    
+                                </Frame>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView x:Name="Indicatorview"
+                                   Grid.Row="2" Grid.ColumnSpan="2"
+                                  IndicatorColor = "LightGray"
+                                  SelectedIndicatorColor = "#DA272E" 
+                                   />
+
+
+                </StackLayout>
+                <Button Grid.Row="2"
+                    Text="Guardar"
+                        BackgroundColor="#F0F0F0"
+                        TextColor="Black"
+                        x:Name="btnGuardar"
+                        CornerRadius="5"
+                        HorizontalOptions="Center"
+                        FontAttributes="Bold"
+                        Clicked="btnGuardar_Clicked"/>
+            </Grid >
+    </Grid >
+    </ScrollView>
+   
+</ContentPage>

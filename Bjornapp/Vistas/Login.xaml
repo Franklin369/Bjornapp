@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             mc:Ignorable="d"
+             x:Class="Bjornapp.Vistas.Login"
+             NavigationPage.HasNavigationBar="False">
+    <Grid BackgroundColor="Black">
+         <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid VerticalOptions="Center" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <forms:AnimationView x:Name="animacion" Grid.Row="0"
+                                 Animation="gatoapp.json"
+                                  HeightRequest="250"
+                                WidthRequest="250"
+                                 AutoPlay="False"
+                                 RepeatMode="Infinite"
+                                 VerticalOptions="Center"/>
+            <Label Grid.Row="1" Text="Bjorn"
+                   TextColor="White" HorizontalTextAlignment="Center"
+                   FontSize="40" FontAttributes="Bold"/>
+            
+
+        </Grid>
+        <StackLayout Grid.Row="1">
+            <StackLayout Orientation="Horizontal">
+                <Image WidthRequest="25" Source="https://i.ibb.co/9NBxhW5/dispon.png"/>
+                <Entry Placeholder="Correo"
+                       x:Name="txtlogin"
+                       PlaceholderColor="#7F7F7F"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       WidthRequest="300"
+                       TextChanged="txtlogin_TextChanged"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Image WidthRequest="25" Source="https://i.ibb.co/tM0wWKb/premi.png"/>
+                <Entry Placeholder="Contraseña"
+                       x:Name="txtcontraseña"
+                       PlaceholderColor="#7F7F7F"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       WidthRequest="300"
+                       TextChanged="txtcontraseña_TextChanged"
+                       IsPassword="True"/>
+            </StackLayout>
+            <Button Text="Iniciar"
+                    TextColor="Black"
+                    BackgroundColor="#FFD33F"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    CornerRadius="30" x:Name="btniniciar"
+                    Clicked="btniniciar_Clicked"/>
+            <Button  TextColor="White"
+                     BackgroundColor="Transparent"
+                     Text="Crear cuenta" 
+                     FontAttributes="Bold"
+                     FontSize="16"
+                     TextTransform="None"
+                     x:Name="btncrearcuenta"
+                     Clicked="btncrearcuenta_Clicked"/>
+        </StackLayout>
+        <StackLayout HorizontalOptions="Center" Grid.Row="2"
+                     Orientation="Horizontal">
+            <Label  Text="Una app de "
+                    HorizontalTextAlignment="Center"
+                    TextColor="#404040"/>
+            <Label  Text="codigo369"
+                    HorizontalTextAlignment="Center"
+                   TextColor="#FFD340"/>
+
+        </StackLayout>
+        
+    </Grid>
+    </Grid>
+   
+</ContentPage>

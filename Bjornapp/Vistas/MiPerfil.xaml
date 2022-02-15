@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cicularImage="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             mc:Ignorable="d"
+             x:Class="Bjornapp.Vistas.MiPerfil">
+    <ScrollView>
+        <Grid BackgroundColor="#111111">
+            <Grid.RowDefinitions >
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <cicularImage:CircleImage Grid.Row="0"
+                                      x:Name="foto"
+                                      Source="bjorn1.png"
+                                      BorderColor="#FFE759"
+                                      BorderThickness="4"
+                                      Margin="0,10,0,0"/>
+            <StackLayout Grid.Row="1" Margin="10,0,10,0"
+                         Orientation="Vertical">
+                <Button Text="Subir foto"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        BackgroundColor="Transparent"
+                        FontSize="16"
+                        WidthRequest="100"
+                        HorizontalOptions="Center"
+                        CornerRadius="15"
+                        BorderColor="#FFE759"
+                        BorderWidth="2"
+                        TextColor="White"
+                        x:Name="btnsubifoto"
+                        Clicked="btnsubifoto_Clicked"/>
+                <Entry TextColor="White" 
+                       FontAttributes="Bold"
+                       Placeholder="Nombres"
+                       PlaceholderColor="WhiteSmoke"
+                       x:Name="txtNombres"
+                       TextChanged="txtNombres_TextChanged"/>
+                <Entry TextColor="White" 
+                       FontAttributes="Bold"
+                       Placeholder="Correo"
+                       PlaceholderColor="WhiteSmoke"
+                       x:Name="txtcorreo"
+                       IsEnabled="False"/>
+                <Entry TextColor="White" 
+                       FontAttributes="Bold"
+                       Placeholder="-"
+                       Text="0000000"
+                       IsPassword="True"
+                       PlaceholderColor="WhiteSmoke"
+                       x:Name="txtpass"
+                       IsEnabled="False"/>
+                <Button Text="Guardar"
+                        TextTransform="None"
+                        FontAttributes="Bold"
+                        BackgroundColor="#FFE759"
+                        FontSize="25"
+                        WidthRequest="120"
+                        HorizontalOptions="Center"
+                        CornerRadius="15"
+                        x:Name="btnGuardar"
+                        Clicked="btnGuardar_Clicked"/>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+    
+</ContentPage>

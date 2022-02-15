@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:degradado="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="Bjornapp.Vistas.CrearCorreo"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <Grid >
+        <Grid.RowDefinitions >
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="240"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+       
+        <degradado:PancakeView Grid.RowSpan="3"
+                               BackgroundGradientStartPoint="0,1"
+                               BackgroundGradientEndPoint="0,0" >
+            <degradado:PancakeView.BackgroundGradientStops >
+                <degradado:GradientStopCollection >
+                    <degradado:GradientStop Color="#F44A32" Offset="0"/>
+                    <degradado:GradientStop Color="#E83C40" Offset="0.8"/>
+
+                </degradado:GradientStopCollection>
+            </degradado:PancakeView.BackgroundGradientStops>
+            
+        </degradado:PancakeView>
+        <ImageButton Source="volvero.png" Grid.Row="0"
+               BackgroundColor="Transparent" 
+               HorizontalOptions="Start" Margin="8"
+               x:Name="btnvolver"
+               Clicked="btnvolver_Clicked"/>
+        <Image Source="bjorn1.png" Margin="0,20,0,0" Grid.Row="1"/>
+        <StackLayout Grid.Row="2"
+                     Margin="20"
+                     Orientation="Vertical">
+            <StackLayout Orientation="Horizontal" HeightRequest="50">
+                 <Button Text="Subir foto"
+                         BackgroundColor="#111111"
+                         TextColor="White"
+                         CornerRadius="10"
+                         x:Name="btnSubirfoto"
+                         Clicked="btnSubirfoto_Clicked"/>
+                <Image Source="https://i.ibb.co/RjRCr5M/camara-fotografica.png"
+                       x:Name="Fotoperfil" />
+            </StackLayout>
+            <Entry TextColor="White" FontAttributes="Bold" 
+                   PlaceholderColor="White"
+                   Placeholder="Nombres"
+                   x:Name="txtnombre"/>
+            <Entry TextColor="White" FontAttributes="Bold" 
+                   PlaceholderColor="White"
+                   Placeholder="Correo"
+                   x:Name="txtCorreo"/>
+            <Entry TextColor="White" FontAttributes="Bold" 
+                   PlaceholderColor="White"
+                   Placeholder="Contraseña"
+                   x:Name="txtContraseña"
+                   IsPassword="True"/>
+            <Button Text="Crear cuenta"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    CornerRadius="10"
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    x:Name="btnCrearcuenta"
+                    Clicked="btnCrearcuenta_Clicked"/>
+
+
+        </StackLayout>
+
+    </Grid>
+    </ScrollView>
+    
+</ContentPage>

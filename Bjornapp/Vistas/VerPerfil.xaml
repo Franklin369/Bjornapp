@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:circularImage="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+          xmlns:estrellas="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
+             x:Class="Bjornapp.Vistas.VerPerfil"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid BackgroundColor="#111111">
+         <ScrollView>
+            <Grid 
+                  Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Grid.Row="0" Grid.Column="0"
+                        Source="volvero.png"
+                                 Margin="8"
+                                  x:Name="btnvolver"
+                                 Clicked="btnvolver_Clicked"
+                                BackgroundColor="Transparent" />
+                    <Label Grid.Row="0" Grid.Column="1"
+                        Text="Nombre"
+                           TextColor="White"
+                            VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"
+                           FontSize="16"
+                            x:Name="lblnombreTitulo"
+                           FontAttributes="Bold"/>
+
+                </Grid>
+                <Grid Grid.ColumnSpan="2" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <circularImage:CircleImage Grid.Row="0" Grid.Column="0"
+                        Source="bjorn1.png"
+                                               HorizontalOptions="Start"
+                                               BorderThickness="4"
+                                               BorderColor="#FFE759"
+                                               x:Name="ImagenPerfil"/>
+                    <StackLayout Grid.Column="1" Grid.Row="0"
+                                Orientation="Vertical" VerticalOptions="Center" >
+                        <ImageButton  Source="https://i.ibb.co/DtCFMqj/llama.png"                                 
+                                      BackgroundColor="Transparent"
+                                     
+                                      x:Name="btnllamar"
+                                      Clicked="btnllamar_Clicked"
+                                      HeightRequest="30"/>
+                        <Label Text="940000" TextColor="White"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"
+                               FontSize="10"
+                               x:Name="lblcelular"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="2" Grid.Row="0"
+                                Orientation="Vertical" VerticalOptions="Center" >
+                        <Image  Source="https://i.ibb.co/BCdJqqg/ubica.png"                                 
+                                      BackgroundColor="Transparent"
+                                      HeightRequest="30"
+                                      
+                                     />
+                        <Label Text="Lima-Perú" TextColor="White"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"
+                               FontSize="10"
+                               x:Name="lblUbicacion"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="3" Grid.Row="0"
+                                Orientation="Vertical" VerticalOptions="Center" >
+                        <Label Text="(4.6)"
+                               TextColor="White"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               HeightRequest="30"
+                               x:Name="lblpuntuacion"/>
+                        <Label Text="Puntos" TextColor="White"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"
+                               FontSize="10"
+                               />
+                    </StackLayout>
+                </Grid>
+                <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0"
+                        Text="Nombres"
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"
+                          x:Name="lblnombresencund"/>
+                    <Label Grid.Row="1" Grid.ColumnSpan="4"
+                           TextColor="White"
+                        Text="Descripcion..."
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start"
+                           x:Name="lbldescripcion"/>
+                    <Button Grid.Column="0" Grid.Row="2"
+                            Text="Calificar"
+                            TextTransform="None"
+                            BackgroundColor="#3194F5"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            x:Name="btnCalificar"
+                            Clicked="btnCalificar_Clicked"
+                            CornerRadius="5"
+                            WidthRequest="40"
+                            />
+                    <Button Grid.Column="1"
+                            Grid.Row="2"
+                            Text="Llamar"
+                            TextTransform="None"
+                            BorderColor="#292929"
+                            BorderWidth="1"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            CornerRadius="5"
+                            x:Name="btnLlamarSecun"
+                            Clicked="btnLlamarSecun_Clicked"
+                            FontAttributes="Bold"
+                            FontSize="11"/>
+                    <Button Grid.Column="2"
+                            Grid.Row="2"
+                            Text="Whatsapp"
+                            TextTransform="None"
+                            BorderColor="#292929"
+                            BorderWidth="1"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            CornerRadius="5"
+                            x:Name="btnwtp"
+                            Clicked="btnwtp_Clicked"
+                            FontAttributes="Bold"
+                            FontSize="11"/>
+                    <Button Grid.Column="3"
+                            Grid.Row="2"
+                            Text="Mapa"
+                            TextTransform="None"
+                            BorderColor="#292929"
+                            BorderWidth="1"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            CornerRadius="5"
+                            x:Name="btnmapa"
+                            Clicked="btnmapa_Clicked"
+                            FontAttributes="Bold"
+                            FontSize="11"/>
+
+                </Grid>
+                <Label Grid.Row="3" 
+                    Text="Mis trabajos"
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       HorizontalTextAlignment="Start"
+                       />
+                <StackLayout Grid.Row="4" Grid.ColumnSpan="2">
+                       <CarouselView x:Name="CarouselGaleria"
+                                     IndicatorView="Indicatorview">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="Transparent"
+                                       Padding="5">
+                                    <ImageButton x:Name="ImagenGaleria"
+                                                 Source="{Binding foto}"
+                                                 BackgroundColor="Transparent">
+                                        
+                                    </ImageButton>
+                                </Frame>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    
+                       </CarouselView>
+                    <IndicatorView x:Name="Indicatorview"
+                                  IndicatorColor = "LightGray"
+                                  SelectedIndicatorColor = "#FFE759"  />
+
+
+                </StackLayout>
+                <Label Grid.Row="5"
+                       Text="Calificaciones"
+                       FontSize="18"
+                       TextColor="White"
+                       FontAttributes="Bold" 
+                       HorizontalTextAlignment="Start"
+                       />
+                <CollectionView Grid.Row="6" Grid.ColumnSpan="2"
+                                x:Name="listaCalificaciones"
+                                >
+                    <CollectionView.ItemsLayout >
+                        <GridItemsLayout Orientation="Vertical"
+                                         Span="1"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate>
+                            <Grid>
+                                <Frame CornerRadius="5"
+                                       BackgroundColor="#292929"
+                                       Padding="0">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="auto" />
+                                        </Grid.RowDefinitions>
+                                        <circularImage:CircleImage Grid.Column="0" Grid.Row="0"
+                                            Source="{Binding foto}"
+                                            BackgroundColor="Transparent"
+                                            VerticalOptions="Fill"
+                                            HorizontalOptions="Fill"
+                                            Aspect="AspectFit"
+                                            Margin="10"
+                                            x:Name="imagenusuario"
+                                            BorderColor="WhiteSmoke"
+                                            WidthRequest="70"/>
+                                        <Grid Grid.Column="1" Grid.RowSpan="2">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="18" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Label Text="{Binding nombre}"
+                                                   Grid.Row="0"
+                                                   FontAttributes="Bold"
+                                                   FontSize="15"
+                                                   TextColor="White"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"/>
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <estrellas:RatingBar Grid.Column="0"
+                                                    FillColor="#EB8A2F"
+                                                                   MaxRating="5"
+                                                                    Rating="{Binding calificacion, Mode=TwoWay}" 
+                                                                    IsEnabled="False" />
+                                            </Grid>
+                                            <StackLayout Grid.Row="2" Orientation="Horizontal">
+                                                <Label Text="{Binding reseña}"
+                                                      VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Start"
+                                                      TextColor="WhiteSmoke"
+                                                       FontSize="15"
+                                                       />
+                                                <StackLayout Margin="0,0,8,0"
+                                                             Orientation="Vertical"
+                                                            HorizontalOptions="EndAndExpand"  >
+                                                    <Image Source="https://i.ibb.co/9NBxhW5/dispon.png"
+                                                           HeightRequest="30"
+                                                           />
+                                                    <Label Text="Validado"
+                                                          TextColor="White"
+                                                           FontSize="8"
+                                                           Margin="0,0,0,5"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            
+                                        </Grid>
+                                    </Grid>
+                                </Frame>
+                            </Grid> 
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    
+                </CollectionView>
+
+            </Grid>
+        </ScrollView> 
+    </Grid>
+      
+    
+</ContentPage>

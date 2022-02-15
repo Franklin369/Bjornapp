@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Bjornapp.Vistas.Categorias"
+             >
+
+<Grid >
+        <CollectionView x:Name="listaCategoriasNormal"
+                       >
+            <CollectionView.Header >
+                <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid>
+                             <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="¿Qué"
+                               FontAttributes="Bold" 
+                               TextColor="Black"
+                               FontSize="25"
+                               Grid.Column="1"
+                               HorizontalTextAlignment="End"
+                               VerticalOptions="Center"/>
+                            <Frame Grid.Column="2" Padding="0"
+                                   BackgroundColor="#FFE758"
+                                   CornerRadius="5"
+                                   Margin="0,5,0,5">
+                                <Label Text="necesitas?"
+                                       FontAttributes="Bold" 
+                                       FontSize="25"
+                                       HorizontalTextAlignment="Start"
+                                       VerticalOptions="Center"
+                                       Margin="5,0,5,0"
+                                       TextColor="Black"/>
+                            </Frame>
+                        </Grid>
+                       
+                    </Grid>
+                    <Label Grid.Row="1" Text="Tendencia"
+                           FontSize="22"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           Margin="10,0,0,0"/>
+                    <CollectionView Grid.Row="2" 
+                                    x:Name="listaCategoriasTop">
+                        <CollectionView.ItemsLayout >
+                            <GridItemsLayout Orientation="Horizontal"
+                                             Span="1"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate >
+                            <DataTemplate >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="20"/>
+
+                                    </Grid.RowDefinitions>
+                                    <Frame Grid.Row="0" 
+                                           BackgroundColor="WhiteSmoke"
+                                           Padding="10"
+                                           CornerRadius="8"
+                                           Margin="5,0,5,0">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="105"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Frame Grid.Row="0" Padding="10"
+                                                   BackgroundColor="{Binding Color}"
+                                                   CornerRadius="8">
+                                                <ImageButton BackgroundColor="Transparent"
+                                                             Source="{Binding Foto}"
+                                                             x:Name="btnCategoriaTop"
+                                                             Clicked="btnCategoriaTop_Clicked"
+                                                             CommandParameter="{Binding Idcategoria}"/>
+                                            </Frame>
+                                            <ActivityIndicator BindingContext="{x:Reference btnCategoriaTop}"
+                                                   IsRunning="{Binding IsLoading}"/>
+                                            <Label Grid.Row="1"
+                                                   Text="{Binding Categoria}"
+                                                   FontSize="16"
+                                                   TextColor="Black" 
+                                                   FontAttributes="Bold"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   />
+                                        </Grid>
+                                        
+                                    </Frame>
+                                    <StackLayout Grid.Row="1"
+                                                 Orientation="Horizontal"
+                                                 Margin="10,0,0,0">
+                                        <Image Source="https://i.ibb.co/9NBxhW5/dispon.png"
+                                               />
+                                        <Label Text="{Binding contador}"
+                                               TextColor="Black"
+                                               FontSize="11"
+                                               VerticalTextAlignment="Center"
+                                               />
+                                    </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label Grid.Row="3" Text="Categorias"
+                           FontSize="22"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           Margin="10,0,0,0"/>
+                </Grid>
+                
+            </CollectionView.Header>
+            <CollectionView.ItemsLayout >
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="20"/>
+
+                        </Grid.RowDefinitions>
+                        <Frame Grid.Row="0" 
+                                           BackgroundColor="WhiteSmoke"
+                                           Padding="10"
+                                           CornerRadius="8"
+                                           Margin="5,0,5,0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="105"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Frame Grid.Row="0" Padding="10"
+                                                   BackgroundColor="{Binding Color}"
+                                                   CornerRadius="8">
+                                    <ImageButton BackgroundColor="Transparent"
+                                                             Source="{Binding Foto}"
+                                                 x:Name="btnCategoriasNormal"
+                                                 Clicked="btnCategoriasNormal_Clicked"
+                                                 CommandParameter="{Binding Idcategoria}"/>
+                                </Frame>
+                                <ActivityIndicator BindingContext="{x:Reference btnCategoriasNormal}"
+                                                   IsRunning="{Binding IsLoading}"/>
+                                <Label Grid.Row="1"
+                                                   Text="{Binding Categoria}"
+                                                   FontSize="16"
+                                                   TextColor="Black" 
+                                                   FontAttributes="Bold"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   />
+                            </Grid>
+
+                        </Frame>
+                        <StackLayout Grid.Row="1"
+                                                 Orientation="Horizontal"
+                                                 Margin="10,0,0,0">
+                            <Image Source="https://i.ibb.co/9NBxhW5/dispon.png"
+                                               />
+                            <Label Text="{Binding contador}"
+                                               TextColor="Black"
+                                               FontSize="11"
+                                               VerticalTextAlignment="Center"
+                                               />
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+    
+</ContentPage>

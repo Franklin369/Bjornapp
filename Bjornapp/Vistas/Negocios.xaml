@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:estrellas="clr-namespace:Messier16.Forms.Controls;assembly=Messier16.Forms.Controls"
+             mc:Ignorable="d"
+             x:Class="Bjornapp.Vistas.Negocios"
+             NavigationPage.HasNavigationBar="False">
+    <Grid BackgroundColor="#111111">
+        <CollectionView x:Name="listaNegociogratis"
+                       >
+            <CollectionView.Header >
+                <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <ImageButton Grid.Column="0"
+                            Source="volvero.png"
+                                     BackgroundColor="Transparent"
+                                  Margin="8"
+                                    x:Name="btnVolver"
+                                         Clicked="btnVolver_Clicked"/>
+                            <Picker Grid.Column="1"
+                                TextColor="White"
+                               x:Name="PickerUbicacion"
+                                    SelectedIndexChanged="PickerUbicacion_SelectedIndexChanged"
+                                />
+                        </Grid>
+                       
+
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Destacados"
+                                   Margin="10,0,0,0"
+                                   FontSize="22"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   VerticalTextAlignment="Center"
+                                   />
+                            <Label Text="(PREMIUM)" 
+                                   TextColor="#ED8C12"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalOptions="StartAndExpand"/>
+                            <Button Text="Anunciate"
+                                    TextTransform="None"
+                                    BackgroundColor="#ED8C12"
+                                    CornerRadius="15"
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    TextColor="Black"
+                                    HorizontalOptions="StartAndExpand"
+                                    x:Name="btnAnunciate"
+                                    Clicked="btnAnunciate_Clicked"/>
+
+                        </StackLayout>
+                    </Grid>
+                    <CollectionView Grid.Row="2" 
+                                    x:Name="listanegociosPago">
+                        <CollectionView.ItemsLayout >
+                            <GridItemsLayout Orientation="Horizontal"
+                                             Span="1"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate >
+                            <DataTemplate >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="20"/>
+                                        <RowDefinition Height="20"/>
+                                    </Grid.RowDefinitions>
+                                    <Frame Grid.Row="0" 
+                                           BackgroundColor="#FFE759"
+                                           Padding="10"
+                                           CornerRadius="8"
+                                           Margin="5,0,5,0">
+                                        <Grid >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="80"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Frame Grid.Row="0" Padding="-20"
+                                                   BackgroundColor="White"
+                                                   CornerRadius="8">
+                                                <ImageButton BackgroundColor="Transparent"
+                                                             Source="{Binding foto}"
+                                                             x:Name="btnfoto2"
+                                                             Clicked="btnfoto2_Clicked"
+                                                             CommandParameter="{Binding idnegocio}"/>
+                                            </Frame>
+                                            <ActivityIndicator BindingContext="{x:Reference btnfoto2}"
+                                                   IsRunning="{Binding IsLoading}"/>
+                                            <Label Grid.Row="1"
+                                                   Text="{Binding nombre}"
+                                                   FontSize="16"
+                                                   TextColor="Black" 
+                                                   FontAttributes="Bold"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   />
+                                        </Grid>
+
+                                    </Frame>
+                                    <StackLayout Grid.Row="1"
+                                                 Orientation="Horizontal"
+                                                 Margin="10,0,0,0">
+                                        <Image Source="https://i.ibb.co/tM0wWKb/premi.png"
+                                               />
+                                        <Label Text="Recomendado" WidthRequest="90"
+                                               TextColor="WhiteSmoke"
+                                               FontSize="11"
+                                               VerticalTextAlignment="Center"
+                                               />
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="2"
+                                                 Orientation="Horizontal"
+                                                 Margin="10,0,0,0">
+                                        <Image Source="locato.png"
+                                               />
+                                        <Label Text="{Binding localidad}"
+                                               TextColor="WhiteSmoke"
+                                               FontSize="11"
+                                               VerticalTextAlignment="Center"
+                                               />
+                                    </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <StackLayout Grid.Row="3" Orientation="Horizontal">
+                         <Label  Text="Catálogo"
+                           FontSize="18"
+                           TextColor="White"
+                           FontAttributes="Bold"
+                           Margin="10,0,0,0"
+                                 VerticalTextAlignment="Center"/>
+                        <Label  Text="(anuncios gratis)"
+                           FontSize="14"
+                           TextColor="#6A6A6A"
+                           FontAttributes="Bold"
+                           Margin="5,0,0,0"
+                                VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                   
+                </Grid>
+
+            </CollectionView.Header>
+            <CollectionView.ItemsLayout >
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+
+                        </Grid.RowDefinitions>
+                        <Frame Grid.Row="0" 
+                                           BackgroundColor="WhiteSmoke"
+                                           Padding="10"
+                                           CornerRadius="8"
+                                           Margin="5,0,5,0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="120"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Frame Grid.Row="0" Padding="-80"
+                                                   BackgroundColor="White"
+                                                   CornerRadius="8"
+                                       >
+                                    <ImageButton BackgroundColor="Transparent"
+                                                             Source="{Binding foto}"
+                                                 x:Name="btnFoto1"
+                                                 Clicked="btnFoto1_Clicked"
+                                                 CommandParameter="{Binding idnegocio}"
+                                                  />
+                                </Frame>
+                                <ActivityIndicator BindingContext="{x:Reference btnFoto1}"
+                                                   IsRunning="{Binding IsLoading}"/>
+                                <Label Grid.Row="1"
+                                                   Text="{Binding nombre}"
+                                                   FontSize="16"
+                                                   TextColor="Black" 
+                                                   FontAttributes="Bold"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   />
+                            </Grid>
+
+                        </Frame>
+                        <Grid Grid.Row="1" 
+                                    
+                                                 Margin="10,0,30,0">
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                Text="{Binding calificacion}"
+                                   TextColor="White"
+                                 FontAttributes="Bold" />
+                            <estrellas:RatingBar Grid.Column="1"
+                                FillColor="#EB8A2F"
+                                                 MaxRating="5"
+                                                 IsEnabled="False"
+                                                 Rating="{Binding calificacion,Mode=TwoWay}"
+                                                 />
+                            <Label Grid.Column="2"
+                                Text="{Binding contCalificaciones}"
+                                   TextColor="White"/>
+                        </Grid>
+                        <StackLayout Grid.Row="2" Orientation="Horizontal"
+                                     Margin="10,0,0,0">
+                            <Image Source="locato.png"/>
+                            <Label Text="{Binding localidad}"
+                                   TextColor="White"/>
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
